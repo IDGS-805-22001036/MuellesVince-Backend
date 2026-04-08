@@ -12,12 +12,17 @@ import { FacturasModule } from './facturas/facturas.module';
 import { CotizacionesModule } from './cotizaciones/cotizaciones.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { AuthModule } from './auth/auth.module';
+import { env } from 'process';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.DATABASE_URL,
+      host: 'turntable.proxy.rlwy.net',
+      port: 14899,
+      username: 'postgres',
+      password: 'HCKpqWqZTGybZUiBfiuBXnABdxxkHVEs',
+      database: 'railway',
       autoLoadEntities: true,
       synchronize: false,
       ssl: {
@@ -38,4 +43,4 @@ import { AuthModule } from './auth/auth.module';
     CotizacionesModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}
